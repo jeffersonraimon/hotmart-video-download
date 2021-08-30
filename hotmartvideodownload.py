@@ -27,25 +27,18 @@ while True:
 
     if url != 'q':
 
-        if url.find('source'):
+    
 
             newurl = url.replace('source', 'authsource') #To download the video, we have to chance that word
 
             r = requests.get(newurl, allow_redirects=True)
 
-            filename = newurl.split('/')[-1] #To use the same name in the url
-
+            filename = str(input('New video name: '))
+        
             open(filename, "wb").write(r.content)
 
-        else:
-
-            newurl = url
-
-            r = requests.get(newurl, allow_redirects=True)
-
-            filename = newurl.split('/')[-1]
-
-            open(filename, "wb").write(r.content)
+        
     else:
+       
         break
 
